@@ -5,5 +5,10 @@ html(lang="en")
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/960.css')
   body
-    div(class='container_12')
+    header
+      div.container_12
+        div.grid_2(id='photocard')
+          img(src='http://www.gravatar.com/avatar/6cd766b61aa0bfe6822c7ba5d477277a?s=200')
+    main
+      div.container_12
         block content

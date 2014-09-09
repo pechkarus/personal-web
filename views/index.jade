@@ -3,6 +3,7 @@ extends layout
 block content
   div(class='grid_12')
     h1= title
-  div(class='clear')
-  div(class='grid_6 prefix_3 suffix_3')
-    p Welcome to #{title}
+  div.clear
+  - each photo in photos
+    div.grid_2 
+      img(src='#{photo.images.thumbnail.url}')

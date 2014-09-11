@@ -4,6 +4,6 @@ block content
   div(class='grid_12')
     h1= title
   div.clear
-  - each photo in photos
+  - each item in data
     div.grid_2 
-      img(src='#{photo.images.thumbnail.url}')
+      img(src='#{item.image}')

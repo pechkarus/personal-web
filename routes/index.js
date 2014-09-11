@@ -1,24 +1,31 @@
 var express = require('express');
-var instagram = require('instagram-node-lib');
 var nconf = require('nconf');
+var async = require('async');
+
+var personal = require("../lib/buckets/personalBucket");
+var professional = require("../lib/buckets/professionalBucket");
+
 
 var router = express.Router();
 
-nconf
-  .file('secret.json')
-  .env();
-
-instagram.set('client_id', nconf.get('instagramClientId'));
-instagram.set('client_secret', nconf.get('instagramClientSecret'));
+nconf.file('secret.json');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  instagram.users.recent({ 
-	  user_id: 3256003,
-	  complete: function(data){
-		  res.render('index', { photos: data });
-	  }
-  });	  
+	async.parallel(
+		[personal.populateBucket, professional.populateBucket],
+		function (err, data) {
+			var newData = data.reduce( function(previousValue, currentValue, index, array){
+					for(var i = 0; i < currentValue.length; i++) {
+						previousValue.push(currentValue[i]);
+					}
+					return previousValue;
+			    }, []);	
+			  console.log(" callback");
+			  console.log(data);
+	  		  res.render('index', { data: newData });		
+	    }
+	);
 });
 
 module.exports = router;

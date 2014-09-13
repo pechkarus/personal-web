@@ -4,6 +4,11 @@ block content
   div(class='grid_12')
     h1= title
   div.clear
-  - each item in data
-    div.grid_2 
-      img(src='#{item.image}')
+  div.grid_6.push_6
+    - for(var i = 0; i < personalBucket.length; i++)
+      div.grid_2.box(class=(i % 3 === 2 ? 'omega' : (i % 3 === 0 ? 'alpha' : '')))
+        img(src='#{personalBucket[i].image}')
+  div.grid_6.pull_6
+    - for(var i = 0; i < professionalBucket.length; i++)
+      div.grid_2.box(class=(i % 3 === 2 ? 'omega' : (i % 3 === 0 ? 'alpha' : '')))
+        img(src='#{professionalBucket[i].image}')

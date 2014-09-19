@@ -7,8 +7,16 @@ block content
   div.grid_6.push_6
     - for(var i = 0; i < personalBucket.length; i++)
       div.grid_2.box(class=(i % 3 === 2 ? 'omega' : (i % 3 === 0 ? 'alpha' : '')))
-        img(src='#{personalBucket[i].image}')
+        a(href='#{personalBucket[i].url}')
+          img(src='#{personalBucket[i].image}')
+          .text 
+            p #{personalBucket[i].title}
+            p #{personalBucket[i].details}
   div.grid_6.pull_6
     - for(var i = 0; i < professionalBucket.length; i++)
       div.grid_2.box(class=(i % 3 === 2 ? 'omega' : (i % 3 === 0 ? 'alpha' : '')))
-        img(src='#{professionalBucket[i].image}')
+        a(href='#{professionalBucket[i].url}')
+          img(src='#{professionalBucket[i].image}')
+          .text 
+            p #{professionalBucket[i].title}
+            p #{professionalBucket[i].details}

@@ -19,12 +19,28 @@ a {
 }
 
 .box{
+	position: relative;
 	height: 140px;
 	margin-bottom: 10px;
+	overflow: hidden;
 }
 
 .box img{
 	max-width: 100%
+}
+
+.box .text{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;	
+}
+
+.box .text p{
+	background-color: rgba(255, 255, 255, 0.7);
+	color: rgba(0, 0, 0, 0.5);
+	font-size: small;
 }
 
 #photocard {

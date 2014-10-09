@@ -16,7 +16,7 @@ router.get('/', function(req, res) {
 		[personal.populateBucket, professional.populateBucket],
 		function (err, data) {
 			
-          res.render('index', { personalBucket: data[0], professionalBucket: data[1] });		
+          res.render('index', {  title: 'Petr Kadomtsev', personalBucket: data[0], professionalBucket: data[1] });		
 	    }
 	);
 });

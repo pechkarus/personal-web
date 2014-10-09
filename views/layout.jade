@@ -4,11 +4,52 @@ html(lang="en")
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/960.css')
+    script(type='text/javascript', src='javascripts/mixpanel.js')
   body
     header
+      div.clear
       div.container_12
         div.grid_2(id='photocard')
           img(src='http://www.gravatar.com/avatar/6cd766b61aa0bfe6822c7ba5d477277a?s=200')
+        div.grid_4
+          h2.message 
+            ='Hi,'
+            br 
+            ='I am Petr Kadomtsev.'
+        div.grid_6
+           ul.social
+             li
+               a(href='http://www.twitter.com/')
+                 img(src='images/icons/twitter.png')
+             li
+               a(href='http://www.instagram.com/')
+                 img(src='images/icons/instagram.png')
+             li
+               a(href='http://www.facebook.com/')
+                 img(src='images/icons/facebook.png')							 
+             li
+               a(href='http://www.linkedin.com/')
+                 img(src='images/icons/linkedin.png')
+             li
+               a(href='http://www.pinterest.com/')
+                 img(src='images/icons/pinterest.png')
+             li
+               a(href='http://www.tumblr.com/')
+                 img(src='images/icons/tumblr.png')
+             li
+               a(href='http://www.youtube.com/')
+                 img(src='images/icons/youtube.png')
+             li
+               a(href='http://www.vimeo.com/')
+                 img(src='images/icons/vimeo.png')
+             li
+               a(href='http://www.github.com/')
+                 img(src='images/icons/github.png')
+ 
     main
       div.container_12
         block content
+    footer
+      div.container_12
+        div.grid_4
+          p!= '&copy; Petr Kadomtsev 2014'
